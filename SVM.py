@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from sklearn import cross_validation
+from random import randint
 from sklearn import datasets
 from sklearn import svm
 
@@ -12,6 +13,7 @@ scores = cross_validation.cross_val_score(clf, X, y, cv=10)
 print(scores)
 print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
 #testing random image
-print("Image classified as " + str(clf.predict(X[177])) +"with label " +  str(y[177]))
-plt.imshow(digits.images[177], cmap=plt.cm.gray_r, interpolation='nearest')
+r = randint(0,1796)
+print("Image classified as " + str(clf.predict(X[r])) +" with label " +  str(y[r]))
+plt.imshow(digits.images[r], cmap=plt.cm.gray_r, interpolation='nearest')
 plt.show()
